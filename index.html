@@ -1,0 +1,193 @@
+<html>
+    <head>
+        <title>Kernel</title>
+        <link rel="stylesheet" href="css/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body class="scrollock">
+        <div class="intro">
+            <p>https://ya.ru:~$ <span id="text"></span><span id="cursor">_</span></p>
+        </div>
+        <div class="main hide">
+            <div class="background">
+                <img src="src/bg.jpg" />
+            </div>
+            <div id="main" class="maincontainer hide">
+                <div class="box hide">
+                    <div class="grid">
+                        <div>
+                            <img src="src/cat square.png" width="128px">
+                        </div>
+                        <div>
+                            <h1 class="username">Cat.</h1>
+                            <h3 class="aka">AKA Muralmaks IT, Моксим., Максим, PatrickStar8753, cat8753</h3>
+                        </div>
+                    </div>
+                    <div class="block hide">
+                        <p class="desc">------ DESCRIPTION ------</p>
+                        <h1>Front-End-разработчик, ютубер и котик :3</h1>
+                        <h1>Люблю изучать что-то новое.</h1>
+                        <h1>Любимые предметы: алгебра, информатика.</h1>
+                        <h1>Программировал на: Python, JavaScript (Node.JS), C++, C#.</h1>
+                        <h1>Сижу на двух стульях: Windows и Linux.</h1>
+                    </div>
+                    <div class="block hide">
+                        <p class="desc">------ PROJECTS ------</p>
+                        <div class="grid">
+                            <div>
+                                <img src="src/logo/mywallpapers.png" width="128px">
+                            </div>
+                            <div>
+                                <h1>My Wallpapers</h1>
+                                <h3>Сайт, где хранятся оригинальные обои Windows, обои с интернета, собственные обои, и всё это в высоком качестве! (почти)</h3>
+                                <h3 class="link"><a class="button" href="https://my-wallpapers.github.io/">Сайт</a>  <a class="button" href="https://github.com/my-wallpapers/my-wallpapers.github.io">GitHub</a></h3>
+                            </div>
+                        </div>
+                        <div class="air"></div>
+                        <div class="grid">
+                            <div>
+                                <img src="src/logo/mwwi.png" width="128px">
+                            </div>
+                            <div>
+                                <h1>MWWI</h1>
+                                <h3>MWWI (My wallpapers wallpaper installer) - это программа, которая берёт рандомную картинку с сайта My wallpapers и ставит её на рабочий стол.</h3>
+                                <h3>Программа написана на C# с библиотекой HTMLAgilityPack.</h3>
+                                <h3 class="link"><a class="button" href="https://patrickstar8753.github.io/MWWI/">Сайт</a>  <a class="button" href="https://github.com/PatrickStar8753/MyWallpapersWallpaperInstaller">GitHub</a></h3>
+                            </div>
+                        </div>
+                        <div class="air"></div>
+                        <div class="grid">
+                            <div>
+                                <img src="src/logo/secret.png" width="128px">
+                            </div>
+                            <div>
+                                <h1>???</h1>
+                                <h3>???</h3>
+                                <h3 class="link"><a class="button" href="secret/">???</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block hide">
+                        <p class="desc">------ YOUTUBE ------</p>
+                        <div class="grid channelmain">
+                            <div>
+                                <img src="src/MIT.png" width="128px">
+                            </div>
+                            <div>
+                                <h1 class="link"><a href="https://google.com">Muralmaks IT</a></h1>
+                                <h3>1800+ подписчиков, 80+ видео.</h3>
+                                <h3>Основной канал. Снимаю эксперименты с ОС и другие IT-плюшки.</h3>
+                            </div>
+                        </div>
+                        <div class="air"></div>
+                        <div class="grid channelsecond">
+                            <div>
+                                <img src="src/cat square.png" width="128px">
+                            </div>
+                            <div>
+                                <h1 class="link"><a href="https://google.com">Моксим.</a></h1>
+                                <h3>200+ подписчиков, 30+ видео.</h3>
+                                <h3>Второй канал. Снимаю трейлеры к будущим видео, щитпостинг и другое, не связанное с IT-тематикой.</h3>
+                            </div>
+                        </div>
+                        <p style="margin-top: 30px; color: rgb(59, 59, 59); text-align: center;">Этот сайт связан со мной, а не с Youtube-каналом.<br>Ссылки на свои страницы мне лень оставлять btw :3</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        function Random(min, max) {
+            return Math.floor(Math.random() * (max - min) + min);
+        }
+
+        try {
+            localStorage.getItem('isvisited');
+        } catch (e) {
+            localStorage.setItem('isvisited', 'true');
+        }
+
+        var command = "start /bio".split('');
+        var i = 0;
+        var keypressed = false;
+        if (localStorage.getItem('isvisited') == 'true'){
+            document.getElementById("text").textContent = "start /bio";
+            document.getElementById('text').insertAdjacentHTML("afterend", `<div id="textcontainer"><p>Hi again! Click on the website to continue.</p></div>`);
+            document.querySelector('body').insertAdjacentHTML("afterbegin", `<div class="clicker" onclick="endintro(true)"></div>`)
+        } else {
+            setTimeout(function(){
+                var interval = setInterval(function(){
+                    if (!(i >= command.length)){
+                        document.getElementById("text").textContent += command[i];
+                        i++
+                    } else {
+                        clearInterval(interval);
+                        setTimeout(function(){
+                            document.getElementById('text').insertAdjacentHTML("afterend", `<div id="textcontainer"><p>Click on the website to continue.</p></div>`);
+                            document.querySelector('body').insertAdjacentHTML("afterbegin", `<div class="clicker" onclick="endintro(false)"></div>`)
+                            document.getElementById('cursor').remove();
+                        }, 700)
+                    }
+                }, Random(100, 150));
+            }, 2000)
+        }
+
+        function endintro(ls){
+            document.querySelector('.clicker').remove();
+            var masstext = ["Hacking Pentagon", "Loading Cats", "Running virus", "Deleting all my videos", "Installing Youtube", "Grabbing your Discord account", "Showing your IP to your mom", "Accessing NASA's mainframe", "Crashing servers", "Encrypting classified files", "Sending fake alerts to authorities", "Hijacking military drones", "Disabling security cameras", "Displaying confidential government documents online"];
+            var audio = new Audio('src/HDD.wav');
+            audio.play();
+            setTimeout(function(){
+                var k = 300;
+                var interval2 = setInterval(function(){
+                    if (k <= 0 || ls){
+                        clearInterval(interval2);
+                        window.scrollTo(0, 0);
+                        document.querySelector('.intro').remove();
+                        document.querySelector('.main').classList.remove('hide');
+                        document.querySelector('body').classList.remove('scrollock');
+                        document.querySelector('title').textContent = "Loading...";
+                        localStorage.setItem('isvisited', 'true');
+                        setTimeout(function(){
+                            audio.pause();
+                            document.getElementById('main').classList.remove('hide');
+                            document.querySelector('.box').classList.remove('hide');
+                            var audiostartup = new Audio('src/The Microsoft Sound.wav');
+                            audiostartup.play();
+                            document.querySelector('title').textContent = "Cat.";
+                            setTimeout(function(){
+                                document.querySelectorAll('.block').forEach(function(el){el.classList.remove('hide')});
+                            }, 1870);
+                        }, 3000)
+                    } else {
+                        k -= 1;
+                        var m = Random(0, masstext.length);
+                        document.getElementById('textcontainer').insertAdjacentHTML("beforeend", `<p>${masstext[m]}...</p>`);
+                        window.scrollTo(0, 9999);
+                    }
+                }, 1);
+            }, 1000)
+        }
+
+        document.addEventListener("keydown", function(){
+            if(!keypressed){
+                keypressed = true;
+                window.scrollTo(0, 0);
+                document.querySelector('.intro').remove();
+                document.querySelector('.main').classList.remove('hide');
+                document.querySelector('body').classList.remove('scrollock');
+                document.querySelector('title').textContent = "Loading...";
+                setTimeout(function(){
+                    document.getElementById('main').classList.remove('hide');
+                    document.querySelector('.box').classList.remove('hide');
+                    var audiostartup = new Audio('src/The Microsoft Sound.wav');
+                    audiostartup.play();
+                    document.querySelector('title').textContent = "Cat.";
+                    setTimeout(function(){
+                                document.querySelectorAll('.block').forEach(function(el){el.classList.remove('hide')});
+                    }, 1870);
+                }, 1500)
+            }
+        })
+    </script>
+</html>

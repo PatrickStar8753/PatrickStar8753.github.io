@@ -1,0 +1,262 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+body {
+    background-color: black;
+    color: white;
+    font-family: 'consolas', monospace;
+}
+
+.intro *::selection {
+    color: rgb(0, 0, 0);
+    background-color: white;
+}
+
+.hide {
+    display: none !important;
+}
+
+#cursor {
+    animation: cur 1s linear infinite;
+}
+
+@keyframes cur {
+    from, 50% {color: white;}
+    51%, to {color: black;}
+}
+
+.clicker {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    left: 0;
+}
+
+.scrollock {
+    overflow-y: hidden !important;
+}
+
+.main .background {
+    width: 100%;
+    height: 100%;
+    animation: loading linear 3s forwards;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes loading {
+    0% {height: 0%;}
+    45% {height: 45%;}
+    63% {height: 56%;}
+    100% {height: 100%;}
+}
+
+.main  {
+    width: 100%;
+    height: 100%;
+}
+
+.main *::selection {
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.main .background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    box-sizing: border-box;
+}
+
+.blackcont {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    animation: loading reverse linear forwards 3s;
+    z-index: 9999;
+}
+
+.maincontainer {
+    width: 100%;
+    min-height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: flexchange 0ms forwards;
+    animation-delay: 1.87s;
+}
+
+.box {
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 4px;
+    padding: 30px;
+    display: block;
+    border: 1px solid gray;
+    animation: marginchange 0s forwards;
+    animation-delay: 1.87s;
+}
+
+.box h1, .box h3, .box p {
+    filter: drop-shadow(0 0 0.2rem rgba(255, 255, 255, 0.5));
+}
+
+.aka {
+    color: rgba(128, 128, 128, 0);
+}
+
+.grid {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 128px calc(100% - 128px);
+}
+
+.grid div:nth-child(1) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid div {
+    margin: 0px 10px;
+}
+
+.grid div .aka{
+    animation: neonpoweraka 1s linear forwards;
+    animation-delay: 250ms;
+}
+
+.grid div .username {
+    animation: neonpower 1s linear forwards;
+}
+
+
+.grid div img {
+    border-radius: 4px;
+}
+
+.air {
+    padding-top: 30px;
+}
+
+.block {
+    height: auto;
+    overflow: hidden;
+    padding-top: 30px;
+}
+
+.block.hide {
+    display: none !important;
+}
+
+@keyframes neonpower {
+    0% {color: rgba(255, 255, 255, 0); filter: none;}
+    14% {color: rgba(255, 255, 255, 0.5);}
+    15% {color: rgba(255, 255, 255, 0);}
+    29% {color: rgba(255, 255, 255, 0.7);}
+    30% {color: rgba(255, 255, 255, 0); filter: none;}
+    100% {color: rgba(255, 255, 255, 1); filter: drop-shadow(0 0 0.2rem rgba(255, 255, 255, 0.5));}
+}
+
+@keyframes neonpoweraka {
+    0% {color: rgba(128, 128, 128, 0); filter: none;}
+    14% {color: rgba(128, 128, 128, 0.5);}
+    15% {color: rgba(128, 128, 128, 0);}
+    29% {color: rgba(128, 128, 128, 0.7);}
+    30% {color: rgba(128, 128, 128, 0); filter: none;}
+    100% {color: rgba(128, 128, 128, 1); filter: drop-shadow(0 0 0.2rem rgba(255, 255, 255, 0.1)) !important;}
+}
+
+.desc {
+    color: rgb(59, 59, 59);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+.link {
+    filter: none !important;
+}
+
+.link a {
+    color: white;
+    text-decoration: none;
+    transition: 250ms;
+    filter: drop-shadow(0 0 0.2rem rgba(255, 255, 255, 0.5));
+}
+
+.link a:hover {
+    color: rgb(16, 255, 16);
+    filter: drop-shadow(0 0 0.2rem rgba(0, 255, 34, 0.5));
+}
+
+.link a.button {
+    text-decoration: underline;
+}
+
+@keyframes flexchange {
+    to {align-items: flex-start;}
+}
+
+@keyframes marginchange {
+    to {margin-top: 20%; margin-bottom: 30px;}
+}
+
+.channelmain {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../src/muralmaksit.png");
+    padding: 15px;
+    border-radius: 4px;
+    background-size: cover;
+}
+
+.channelsecond {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../src/moksim.png");
+    padding: 15px;
+    border-radius: 4px;
+    background-size: cover;
+}
+
+@media (max-width: 768px) {
+
+    .main p, .main h1, .main h3 {
+        text-align: center;
+    }
+
+    .grid {
+        grid-template-columns: none;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .grid div {
+        margin: 10px 0px;
+    }
+
+    h3.link {
+        margin-top: 30px;
+    }
+
+    .box {
+        margin-top: 0 !important;
+        padding: 5px !important;
+    }
+}
+
+.blured * {
+    filter: blur(8px);
+}
